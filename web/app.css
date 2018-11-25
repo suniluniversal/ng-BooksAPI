@@ -1,0 +1,7 @@
+.searchResults {
+    border-collapse: collapse;
+}
+
+table, tr, th, td{
+    border : 3px solid black;
+}

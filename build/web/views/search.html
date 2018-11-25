@@ -1,0 +1,29 @@
+<form data-ng-submit="searchBooksByQuery()">
+    Enter a Book Title:<br/>
+    <input type="text" ng-model="searchKey" name="searchKey"/>
+    <input type="submit" id="submit" value="Search"/>
+</form>
+<p style="color:red" ng-bind="errorResponse"></p>
+<table ng-if="books.length>0" class="searchResults">
+    <thead>
+    <th>Cover</th>
+    <th>Title</th>
+    <th>Authors</th>
+    <th>Publisher</th>
+    <th>Preview Link</th>
+    <th>More Details</th>
+    </thead>
+    <tbody>
+    <tr ng-repeat="book in books">
+        <td><img src="{{book.volumeInfo.imageLinks.smallThumbnail}}"></td>
+        <td>{{book.volumeInfo.title}}</td>
+        <td>{{book.volumeInfo.authors}}</td>
+        <td>{{book.volumeInfo.publisher}}</td>
+        <td><a href="{{book.volumeInfo.previewLink}}">Preview</a></td>
+        <td><a href="#/bookDetail/{{book.id}}">Click Here</a></td>
+    {{book.id}}
+    <!--<a href="#/bookDetail/{{book.id}}">{{book.volumeInfo.title}}</a>-->
+
+    </tr>
+    </tbody>
+</table>
